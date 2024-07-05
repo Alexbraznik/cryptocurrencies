@@ -1,0 +1,122 @@
+@import "mixins";
+@import "variables";
+
+.main {
+  background-color: #1c1a1a;
+  //   min-width: 100vw;
+  //   min-height: 100vh;
+  @include justify-center;
+}
+
+.container {
+  min-width: 1296px; // поправить
+  min-height: 836px; // поправить
+  padding: 48px 82px 32px 62px;
+  position: relative;
+  z-index: 1;
+
+  h1 {
+    color: white;
+    text-transform: uppercase;
+    max-width: 1008px;
+    font-weight: bold;
+    font-size: 84px;
+    line-height: 120%;
+    margin-bottom: 44px;
+
+    span {
+      background: $gradient-blue-to-green;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  }
+
+  h4 {
+    font-size: 34px;
+    color: #828282;
+    line-height: 120%;
+    margin-bottom: 88px;
+  }
+
+  .benefits {
+    display: flex;
+    gap: 126px;
+    margin-bottom: 102px;
+
+    h3 {
+      color: white;
+      font-weight: bold;
+      font-size: 48px;
+      line-height: 48px;
+    }
+
+    p {
+      @include text-white(0.3);
+      font-size: 18px;
+      line-height: 24px;
+    }
+  }
+
+  .join {
+    text-transform: uppercase;
+    font-size: 28px;
+    font-family: "Teko";
+    font-weight: 500;
+    padding: 9px 193px;
+
+    @include border-radius(16px);
+    cursor: pointer;
+    background: $gradient-blue-to-green;
+    border: 0;
+    margin-bottom: 76px;
+    -webkit-box-shadow: 0px 0px 150px 0px rgba(165, 191, 180, 0.42);
+    -moz-box-shadow: 0px 0px 150px 0px rgba(165, 191, 180, 0.42);
+    box-shadow: 0px 0px 150px 0px rgba(165, 191, 180, 0.42);
+  }
+
+  .download {
+    display: flex;
+    gap: 13px;
+
+    .download__link {
+      @include items-center;
+      background-color: rgba(48, 45, 45, 0.34);
+      width: 105px;
+      max-height: max-content;
+      padding: 8px 19px 8px 12px;
+      @include border-radius(12px);
+      text-decoration: none;
+      @include text-white(0.4);
+
+      p {
+        font-size: 12px;
+        line-height: 12px;
+        margin-left: 8px;
+
+        span {
+          font-size: 20px;
+          line-height: 24px;
+        }
+      }
+    }
+  }
+
+  .bitcoin,
+  .litecoin,
+  .ethereum {
+    position: absolute;
+    z-index: -1;
+  }
+  .bitcoin {
+    top: 0;
+    right: 5%;
+  }
+  .litecoin {
+    top: 30%;
+    right: 20%;
+  }
+  .ethereum {
+    bottom: 0;
+    right: 5%;
+  }
+}
