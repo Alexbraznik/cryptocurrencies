@@ -8,14 +8,23 @@ import {
   Litecoin,
 } from "./main-page/assets";
 import { Aside } from "./";
+import { useEffect, useState } from "react";
 
 export function MainPage(): JSX.Element {
+  const [isMobile, setIsMobile] = useState<boolean>(false);
+
+  useEffect(() => {
+    setIsMobile(window.innerWidth <= 320);
+  }, []);
+
   return (
     <main className={styles.main}>
       <div className={styles.container}>
         <h1>
-          Do you want to Learn more About cryptocurrencies
-          <span> quickly and easily ?</span>
+          Do you want to Learn more About cryptocurrencies{" "}
+          <span>
+            quickly and easily <span>?</span>
+          </span>
         </h1>
 
         <h4>Subscribe to our channel to learn more</h4>
@@ -36,22 +45,22 @@ export function MainPage(): JSX.Element {
         </div>
         <button className={styles.join}>Join Whatsapp</button>
 
-        <div className={styles.download}>
+        <footer className={styles.download}>
           <Link href="#" className={styles.download__link}>
-            <GooglePlayIcon />
+            <GooglePlayIcon className={styles.googleIcon} />
             <p>
               get it on <br />
               <span>Google play</span>
             </p>
           </Link>
           <Link href="#" className={styles.download__link}>
-            <AppStoreIcon />
+            <AppStoreIcon className={styles.appIcon} />
             <p>
-              Available on the <br />
+              {isMobile ? "get it on" : "Available on"} <br />
               <span>App Store</span>
             </p>
           </Link>
-        </div>
+        </footer>
 
         <Aside />
 
